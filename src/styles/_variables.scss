@@ -1,0 +1,16 @@
+$primaryColor: #100e1d;
+$secondaryColor: #1e213a;
+$primaryFont: "Raleway", sans-serif;
+
+$textColorLight: #e7e7eb;
+$textColorDark: #a09fb1;
+
+$font-weights: (
+  "regular": 500,
+  "medium": 600,
+  "bold": 700,
+);
+
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
