@@ -14,3 +14,9 @@ $font-weights: (
 @function weight($weight-name) {
   @return map-get($font-weights, $weight-name);
 }
+
+@mixin flexCenter($flexDirection) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: center;
+}

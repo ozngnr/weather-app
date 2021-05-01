@@ -1,7 +1,7 @@
 @import "./styles/resets";
 @import "./styles/variables";
 
-@import "./styles/sideInfo.scss";
+@import "./components/CurrentLocation/currentLocation";
 
 body {
   font-family: $primaryFont;

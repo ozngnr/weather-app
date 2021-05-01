@@ -1,31 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { CurrentLocation, Forecast } from "../components";
+import weatherData from "../weather.json"
 
 export const WeatherContainer = () => {
   const [location, setLocation] = useState({});
   const [weather, setWeather] = useState({
     forecast: [
-      {
-        id: 5363033271435264,
-        weather_state_name: "Showers",
-        weather_state_abbr: "s",
-        wind_direction_compass: "N",
-        created: "2021-04-29T12:31:01.072943Z",
-        applicable_date: "2021-04-29",
-        min_temp: 3.71,
-        max_temp: 12.285,
-        the_temp: 10.945,
-        wind_speed: 6.072489836938943,
-        wind_direction: 0.9999999999999987,
-        air_pressure: 1011,
-        humidity: 53,
-        visibility: 11.506241052254833,
-        predictability: 73,
-      },
-    ],
-    city: "London",
+        {
+          id: "",
+          weather_state_name: "",
+          weather_state_abbr: "",
+          wind_direction_compass: "",
+          created: "",
+          applicable_date: "",
+          min_temp: "",
+          max_temp: "",
+          the_temp: "",
+          wind_speed: "",
+          wind_direction: "",
+          air_pressure: "",
+          humidity: "",
+          visibility: "",
+          predictability: "",
+        },
+      ],
+    city: "",
   });
 
+  useEffect(() => {
+    setWeather({
+      forecast: weatherData.consolidated_weather,
+      city: weatherData.title
+    })
+  }, [])
   // const API_BASE =
   //   "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/";
 
@@ -64,6 +71,7 @@ export const WeatherContainer = () => {
   // }, []);
 
   console.log(weather);
+  
   return (
     <>
       <CurrentLocation weather={weather} />

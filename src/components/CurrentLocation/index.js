@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import showers from "../../assets/images/Shower.png"
 
 export default function CurrentLocation({ weather }) {
   const [query, setQuery] = useState("");
@@ -21,16 +22,13 @@ export default function CurrentLocation({ weather }) {
           <button className="gps-btn">CurrentLocation</button>
         </form>
       </div>
-      <img className="currentWeather__img" src="" alt="" />
-      <p className="currentWeather__temp">{weather.forecast[0].max_temp}</p>
+      <img className="currentWeather__img" src={showers} alt="" />
+      <p className="currentWeather__temp">{Math.round(weather.forecast[0].max_temp)}<span>°C</span></p>
       <p className="currentWeather__state">
         {weather.forecast[0].weather_state_name}
       </p>
-      <div className="currentWeather-date">
-        <p className="day">{}</p>
-        <p className="date">{weather.forecast[0].applicable_date}</p>
-      </div>
-      <p className="city">{weather.city}</p>
+      <p className="dateInfo">{"Today"}<span></span>{weather.forecast[0].applicable_date}</p>
+      <p className="cityName">{weather.city}</p>
     </div>
   );
 }
