@@ -1,0 +1,11 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 2em 1.625em;
+  margin: 3em 3.375em;
+  border: 1px solid red;
+}
+
+.card__compass {
+  display: inline-block;
+}

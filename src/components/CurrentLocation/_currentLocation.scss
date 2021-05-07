@@ -1,8 +1,6 @@
 .currentWeather {
   @include flexCenter(column);
   position: relative;
-  max-width: 460px;
-  height: 100vh;
   color: $textColorDark;
   background: $secondaryColor;
 
@@ -14,7 +12,7 @@
     background-image: url("../../assets/images/Cloud-background.png");
     background-repeat: no-repeat;
     background-size: 150%;
-    background-position: 50% 10%;
+    background-position: center 50px;
     opacity: 0.1;
   }
   &__temp {
@@ -60,6 +58,7 @@
 .dateInfo {
   @include flexCenter(row);
   margin-bottom: 2em;
+
   & span {
     display: inline-block;
     margin: 0 1em;
@@ -68,4 +67,8 @@
     border-radius: 50%;
     background: $textColorDark;
   }
+}
+
+.city {
+  margin-bottom: 6em;
 }

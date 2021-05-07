@@ -1,0 +1,28 @@
+.card {
+  @include flexCenter(column);
+  // width: 120px;
+  background: $secondaryColor;
+  padding: 1.125em 1em;
+  cursor: pointer;
+
+  &__date {
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  &__img {
+    width: 70%;
+    margin-bottom: 1.5em;
+    user-select: none;
+  }
+
+  &__temp {
+    @include flexCenter(row);
+    justify-content: space-between;
+    width: 100%;
+
+    .min {
+      color: $textColorDark;
+    }
+  }
+}

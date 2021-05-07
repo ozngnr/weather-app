@@ -2,6 +2,8 @@
 @import "./styles/variables";
 
 @import "./components/CurrentLocation/currentLocation";
+@import "./components/WeatherCard/weatherCard";
+@import "./components/Forecast/forecast";
 
 body {
   font-family: $primaryFont;
