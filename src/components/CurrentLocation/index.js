@@ -13,29 +13,32 @@ export default function CurrentLocation({ weather }) {
 
   console.log(weather);
   return (
-    <div className="currentWeather">
-      <div className="search">
-        <form onSubmit={handleSubmit} className="search-form">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Search..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button className="gps-btn">CurrentLocation</button>
-        </form>
+    <section className="section-weather">
+
+      <form onSubmit={handleSubmit} className="search">
+        <input
+          type="text"
+          className="search__bar"
+          placeholder="Search..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button className="gps-btn">+</button>
+      </form>
+
+      <div className="currentWeather">
+        <img className="currentWeather__img" src={showers} alt="" />
+        <p className="currentWeather__temp">{Math.round(weather.forecast[index].max_temp)}<span>°C</span></p>
+        <p className="currentWeather__state">
+          {weather.forecast[index].weather_state_name}
+        </p>
+        <p className="currentWeather__date">
+          {"Today"}<span className="currentWeather__date-dot"></span>
+          <Moment date={weather.forecast[index].applicable_date} format="ddd, D MMM" />
+        </p>
+        <p className="currentWeather__city">{weather.city}</p>
       </div>
-      <img className="currentWeather__img" src={showers} alt="" />
-      <p className="currentWeather__temp">{Math.round(weather.forecast[index].max_temp)}<span>°C</span></p>
-      <p className="currentWeather__state">
-        {weather.forecast[index].weather_state_name}
-      </p>
-      <p className="dateInfo">
-        {"Today"}<span></span>
-        <Moment date={weather.forecast[index].applicable_date} format="ddd, D MMM" />
-      </p>
-      <p className="city">{weather.city}</p>
-    </div>
+      
+    </section>
   );
 }

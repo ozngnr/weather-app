@@ -73,9 +73,9 @@ export const WeatherContainer = () => {
   console.log(weather);
   
   return (
-    <>
-      <CurrentLocation weather={weather}/>
-      <Forecast forecast={weather.forecast} />
-    </>
+    <main>
+        <CurrentLocation weather={weather}/>
+        <Forecast forecast={weather.forecast} />
+    </main>
   );
 };

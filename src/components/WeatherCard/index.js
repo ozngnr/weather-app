@@ -19,8 +19,8 @@ export default function WeatherCard({ day }) {
         alt={day.weather_state_name}
       />
       <div className="card__temp">
-        <p className="max">{Math.round(day.max_temp)}°C</p>
-        <p className="min">{Math.round(day.min_temp)}°C</p>
+        <p className="card__temp-max">{Math.round(day.max_temp)}°C</p>
+        <p className="card__temp-min">{Math.round(day.min_temp)}°C</p>
       </div>
     </div>
   )

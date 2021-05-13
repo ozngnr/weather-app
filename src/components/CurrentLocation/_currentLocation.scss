@@ -1,6 +1,9 @@
-.currentWeather {
+.section-weather {
   @include flexCenter(column);
+  justify-content: flex-start;
+  flex: 1;
   position: relative;
+  // max-width: 460px;
   color: $textColorDark;
   background: $secondaryColor;
 
@@ -9,12 +12,51 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url("../../assets/images/Cloud-background.png");
+    background: url("../../assets/images/Cloud-background.png") center 50px;
     background-repeat: no-repeat;
     background-size: 150%;
-    background-position: center 50px;
     opacity: 0.1;
   }
+
+  @include tablet {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.search {
+  @include flexCenter(row);
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em;
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__bar {
+    background: $primaryColor;
+    padding: 0.75em 1.125em;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+    &::placeholder {
+      color: $textColorLight;
+    }
+  }
+}
+
+.currentWeather {
+  padding: 4em 0 6em;
+  text-align: center;
+
+  &__img {
+    max-width: 150px;
+  }
+
   &__temp {
     font-size: 9rem;
     color: $textColorLight;
@@ -30,45 +72,24 @@
     font-weight: weight(medium);
     margin-bottom: 2em;
   }
-}
 
-.search {
-  width: 100%;
-  padding: 1em;
-  margin-bottom: 4em;
+  &__date {
+    @include flexCenter(row);
+    margin-bottom: 2em;
 
-  &-form {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &-bar {
-    background: $primaryColor;
-    padding: 0.75em 1.125em;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 0px 4px 4px 0px #00000040;
-
-    &::placeholder {
-      color: $textColorLight;
+    &-dot {
+      display: inline-block;
+      margin: 0 1em;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: $textColorDark;
     }
   }
-}
 
-.dateInfo {
-  @include flexCenter(row);
-  margin-bottom: 2em;
-
-  & span {
-    display: inline-block;
-    margin: 0 1em;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: $textColorDark;
+  @include tablet {
+    @include flexCenter(column);
+    justify-content: space-between;
+    height: 100vh;
   }
-}
-
-.city {
-  margin-bottom: 6em;
 }

@@ -1,8 +1,8 @@
 .card {
   @include flexCenter(column);
-  // width: 120px;
   background: $secondaryColor;
   padding: 1.125em 1em;
+  text-align: center;
   cursor: pointer;
 
   &__date {
@@ -21,7 +21,7 @@
     justify-content: space-between;
     width: 100%;
 
-    .min {
+    &-min {
       color: $textColorDark;
     }
   }
