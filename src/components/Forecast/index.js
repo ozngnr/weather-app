@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import WeatherCard from "../WeatherCard";
+import NavigationRoundedIcon from '@material-ui/icons/NavigationRounded';
+import { HumidityBar } from "..";
 
 export default function Forecast({ forecast }) {
+  const [isFahrenheit, setIsFahrenheit] = useState(false)
 
-  console.log(forecast)
   return (
     <section className="section-forecast">
       <div className="container">
         
         <div className="temp-btn-container">
-          <button className="temp-btn">°C</button>
-          <button className="temp-btn">°F</button>
+          <button className="btn btn__secondary" onClick={() => setIsFahrenheit(false)}>°C</button>
+          <button className="btn btn__secondary" onClick={() => setIsFahrenheit(true)}>°F</button>
         </div>
 
         <div className="cards">
@@ -20,27 +22,37 @@ export default function Forecast({ forecast }) {
         </div>
         
         <div className="cards cards-highlights">
+
           <h1 className="cards__title">Today's Highlights</h1>
+
           <div className="card">
             <h3 className="card__name">Wind status</h3>
             <p className="card__text">
-              <span
-                className="card__compass"
-                style={{
-                  display: "inline-block",
-                  transform: `rotate(${forecast[0].wind_direction}deg)`}}> ^ </span>
               {Math.round(forecast[0].wind_speed)}
               <span className="card__text-unit"> mph</span>
             </p>
+            <div className="card__compass">  
+              <div className="card__compass-iconBg">
+                <NavigationRoundedIcon
+                  style={{
+                    transform: `rotate(${forecast[0].wind_direction}deg)`
+                  }}
+                  fontSize="small"
+                />
+              </div>
+              <p className="card__compass-text">{forecast[0].wind_direction_compass}</p>
+            </div>
           </div>
+          
           <div className="card">
             <h3 className="card__name">Humidity</h3>
             <p className="card__text">
               {forecast[0].humidity}
               <span className="card__text-unit">%</span>
             </p>
-            <div className="card__progressBar"></div>
+            <HumidityBar />
           </div>
+
           <div className="card">
             <h3 className="card__name">Visibility</h3>
             <p className="card__text">
@@ -48,6 +60,7 @@ export default function Forecast({ forecast }) {
               <span className="card__text-unit"> miles</span>
             </p>
           </div>
+
           <div className="card">
             <h3 className="card__name">Air Pressure</h3>
             <p className="card__text">

@@ -1,0 +1,25 @@
+.bar {
+  margin: 0 auto;
+  max-width: 230px;
+  font-size: 0.75rem;
+  color: $textColorDark;
+
+  &__numbers {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__progress {
+    margin: 2px 0;
+    height: 8px;
+    background: $textColorLight;
+    border-radius: 5px;
+    overflow: hidden;
+
+    &-percentage {
+      width: 0;
+      height: 100%;
+      background: $accentColor;
+    }
+  }
+}

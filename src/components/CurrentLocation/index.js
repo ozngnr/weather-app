@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
+import MyLocationRoundedIcon from '@material-ui/icons/MyLocationRounded';
 import showers from "../../assets/images/Shower.png"
 
 export default function CurrentLocation({ weather }) {
@@ -23,7 +24,9 @@ export default function CurrentLocation({ weather }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="gps-btn">+</button>
+        <button className="btn">
+          <MyLocationRoundedIcon />
+        </button>
       </form>
 
       <div className="currentWeather">

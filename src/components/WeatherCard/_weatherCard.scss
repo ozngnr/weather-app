@@ -1,8 +1,7 @@
 .card {
-  @include flexCenter(column);
-  background: $secondaryColor;
-  padding: 1.125em 1em;
   text-align: center;
+  padding: 1.125em 1em;
+  background: $secondaryColor;
   cursor: pointer;
 
   &__date {

@@ -1,14 +1,8 @@
 import React from 'react';
 import Moment from 'react-moment';
-import images from '../../assets'
+import { weatherIcon } from '../../utils/weatherIcon'
 
 export default function WeatherCard({ day }) {
-
-  const weatherIcon = ( day ) => {
-    const stateName = day.weather_state_name.split(' ').join('')
-    return images[stateName]
-  }
-
   return (
     <div className="card">
       <Moment className="card__date" date={day.applicable_date} format="ddd, D MMM"/>
@@ -19,8 +13,8 @@ export default function WeatherCard({ day }) {
         alt={day.weather_state_name}
       />
       <div className="card__temp">
-        <p className="card__temp-max">{Math.round(day.max_temp)}°C</p>
-        <p className="card__temp-min">{Math.round(day.min_temp)}°C</p>
+        <p className="card__temp-max">{Math.round(day.max_temp)}</p>
+        <p className="card__temp-min">{Math.round(day.min_temp)}</p>
       </div>
     </div>
   )

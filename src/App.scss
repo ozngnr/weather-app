@@ -4,6 +4,7 @@
 @import "./components/CurrentLocation/currentLocation";
 @import "./components/WeatherCard/weatherCard";
 @import "./components/Forecast/forecast";
+@import "./components/HumidityBar/humidityBar";
 
 body {
   font-family: $primaryFont;
@@ -12,11 +13,20 @@ body {
   color: $textColorLight;
 }
 
+// main {
+//   display: grid;
+//   grid-template-columns: 1fr;
+
+//   @include tablet {
+//     grid-template-columns: 1fr 2fr;
+//   }
+// }
+
 main {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
 
   @include tablet {
-    grid-template-columns: 1fr 2fr;
+    flex-direction: row;
   }
 }

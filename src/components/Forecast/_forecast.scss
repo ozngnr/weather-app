@@ -1,9 +1,14 @@
+.section-forecast {
+  @include flexCenter(column);
+  flex: 2.5;
+}
 .container {
+  position: relative;
   margin: 0 auto;
   width: 85%;
   max-width: 700px;
-  // border: 1px solid wheat;
 }
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -13,7 +18,10 @@
 
   &__title {
     grid-column: -1 / 1;
-    // margin-bottom: 1em;
+  }
+
+  @include tablet {
+    margin-bottom: 5em;
   }
 }
 
@@ -42,5 +50,50 @@
       font-size: 1.5rem;
       font-weight: weight(regular);
     }
+  }
+
+  &__compass {
+    @include flexCenter(row);
+
+    &-iconBg {
+      width: 25px;
+      height: 25px;
+      padding: 2px 2px 0 0;
+      background: rgba($textColorLight, 0.3);
+      border-radius: 50%;
+    }
+
+    &-text {
+      font-size: 0.825rem;
+      margin-left: 5px;
+    }
+  }
+}
+
+.temp-btn-container {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1em 0 3em;
+  }
+}
+
+.btn {
+  @include flexCenter(row);
+  margin: 0.25em;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  font-family: $primaryFont;
+  font-size: 1.125rem;
+  font-weight: weight(bold);
+  color: $textColorLight;
+  background-color: $primaryColor;
+
+  &__secondary {
+    background-color: $secondaryColor;
   }
 }
